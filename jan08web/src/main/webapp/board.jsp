@@ -43,7 +43,7 @@ td{
 	text-decoration: none;
 }
 .title a:visited{
-	color: black;
+	color: red;
 }
 .title a:link{
 	color: black;

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
 <title>디테일디테일</title>
@@ -25,7 +26,7 @@
 				
 				$(this).prev().hide();
 				$(this).hide();
-				comment.css('height', '110');
+				comment.css('height', '110px');
 				comment.css('padding-top', '10px');
 				comment.css('backgroundColor', '#c1c1c1');
 				let commentChange = comment.html().replaceAll("<br>", "\r\n");
@@ -39,6 +40,7 @@
 				recommentBox += '</form></div>';
 				
 				comment.html(recommentBox);
+				
 			
 			}
 		});
@@ -145,8 +147,19 @@
 				document.body.appendChild(form);
 				form.submit(); */
 			}
+		}); // 댓글쓰기 동적생성 끝
+		
+		//댓글쓰기 창에 쓸 수 있는 글자를 표시해주고 넘어가면 입력불가로 바꾸기
+		$("#commentcontent").keyup(function(){
+			let text = $(this).val();
+			if(text.length > 200) {
+				alert("200자 넘으면 안되ㅇ.")
+				$(this).val(text.substr(0,200));
+			}
+			$("#comment-btn").text("글쓰기 " + text.length + "/200");
 		});
 	});
+
 </script>
 
 <style type="text/css">
