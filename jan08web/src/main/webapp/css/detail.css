@@ -65,6 +65,24 @@
 	margin: 0;
 	padding-left: 10px;
 	padding-top: 5px;
-	
-	
+}
+.commentcontent{
+	margin: 0;
+	padding : 0;
+	width: calc(100% - 70px);
+	height: 70px;
+	border: 1px solid black;
+	border-right: 0;
+	box-sizing: border-box;
+	float: left;
+	resize: none;
+}
+
+.comment-btn{
+	margin: 0;
+	padding: 0;
+	width: 70px;
+	height: 70px;
+	float: left;
+	border: 1px solid black;
 }

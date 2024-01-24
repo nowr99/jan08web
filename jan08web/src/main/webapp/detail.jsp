@@ -20,10 +20,28 @@
 			if(confirm("정말 수정할꺼니?")){
 				// 필요한 cno 값 잡기 / 수정한 내용 + 로그인 ==== 서블릿에서 정리
 				let cno = $(this).parent().children(".cno").val(); // cno 잡기
-				let comment = $(this).parents(".chead").next().text();
-				alert(cno + " : " + comment);
+				let comment = $(this).parents(".chead").next();/*next()는 html 태그를 잡음 Object object*/; // 변경해야됨 나중에
+				// alert(cno + " : " + comment.html()); html태그도 포함해서 출력하기
+				
+				$(this).prev().hide();
+				$(this).hide();
+				comment.css('height', '110');
+				comment.css('padding-top', '10px');
+				comment.css('backgroundColor', '#c1c1c1');
+				let commentChange = comment.html().replaceAll("<br>", "\r\n");
+				
+				// 옛날방식
+				let recommentBox='<div class="recommentBox">';
+				recommentBox += '<form action="./cedit" method="post">';
+				recommentBox += '<textarea class="commentcontent" name="comment">' + commentChange + '</textarea>';
+				recommentBox += '<input type="hidden" name="cno" value="'+cno+'">';
+				recommentBox += '<button class="comment-btn" type="submit">댓글수정</button>';
+				recommentBox += '</form></div>';
+				
+				comment.html(recommentBox);
+			
 			}
-		})
+		});
 		
 		
 		// 24.01.24 댓글 삭제버튼을 눌렀습니다. id 가 아닌 class로 지정 (id로 하면 댓글 한개 지우면 멈춰버림 class는 여러개 가능) 
@@ -177,6 +195,7 @@
 	border: 5px solid black;
 	box-sizing: border-box;
 }
+
 </style>
 </head>
 <body>
