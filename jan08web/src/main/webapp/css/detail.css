@@ -1,0 +1,70 @@
+@charset "UTF-8";
+.comment-write {
+	margin-bottom: 10px;
+	width: 900px;
+	height: 100px;
+	padding: 10px;
+	padding-left: 15px;
+	box-sizing: border-box;
+	background-color: silver;
+}
+.comment-form textarea{
+	margin: 0;
+	padding : 5px;
+	width: calc(100% - 70px);
+	height: 70px;
+	border: 1px solid black;
+	border-right: 0;
+	box-sizing: border-box;
+	float: left;
+	resize: none;
+	
+}
+.comment-form button{
+	margin: 0;
+	padding: 0;
+	width: 70px;
+	height: 70px;
+	float: left;
+	border: 1px solid black;
+	
+}
+
+/* 댓글 출력 관련 css */
+.comments{
+	margin: 0;
+	padding: 0;
+	width: 900px;
+	height: auto;
+	box-sizing: border-box;
+}
+.comment{
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+}
+.chead{
+	margin: 0;
+	padding: 0;
+	
+}
+.cname{
+	margin: 0;
+	padding-left: 10px;
+	height: 30px;
+	background-color: #f0f0f0;
+}
+.cdate{
+	margin: 0;
+	padding-right: 5px;
+	float: right;
+	
+}
+.ccomment{
+	margin: 0;
+	padding-left: 10px;
+	padding-top: 5px;
+	
+	
+}

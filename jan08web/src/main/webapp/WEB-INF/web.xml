@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>jan08web</display-name>
+  <welcome-file-list> <!-- 아래 파일들을 첫페이지로 열어줌 (없으면 점점 밑에꺼로) -->
+    <welcome-file>index</welcome-file> <!-- .jsp를 지우고 index만 써줌 -->
+  </welcome-file-list>
+ 
+ <session-config>
+ 	<session-timeout>
+ 		20
+ 	</session-timeout>
+ </session-config>
+ 
+ 
+ 
+<!--  <servlet>
+ 	<servlet-name>board123</servlet-name>
+ 	<jsp-file>/board.jsp</jsp-file> board.jsp의 이름을 board123로 지어줌
+ </servlet> 
+ 
+ <servlet-mapping>
+ 	<servlet-name>board123</servlet-name>
+ 	<url-pattern>/board</url-pattern> 사용자가 /board라고 입력하면 board123열어줘
+ </servlet-mapping> xml은 서블릿 통과하는 역할임 (옛날에 쓰던 방식) -->
+  
+ 
+ <!-- 에러페이지 설정하기 -->
+ <error-page>
+ 	<error-code>403</error-code>
+ 	<location>/error.jsp</location>
+ </error-page> 
+  
+ 
+ 
+  
+ <!-- .jsp호출 막아버리기 -> 위에 웰컴파일도 바꿔야해 -->
+  <security-constraint>
+      <display-name>JSP Protection</display-name>
+      <web-resource-collection>
+         <web-resource-name>SecureJSPPages</web-resource-name>
+         <url-pattern>*.jsp</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+         <role-name>nobody</role-name>
+      </auth-constraint>
+   </security-constraint>
+
+   <security-role>
+      <description>
+Nobody should be in this role so JSP files are protected
+from direct access.
+</description>
+      <role-name>nobody</role-name>
+   </security-role>
+  
+</web-app>
