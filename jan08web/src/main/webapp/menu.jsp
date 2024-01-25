@@ -7,6 +7,7 @@
 					<li onclick="url('./qna')">문의게시판</li>
 					<li onclick="url('./notice')">후원</li>
 					<li onclick="url('./bootstrap')">부트스트랩</li>
+					<li onclick="url('./coffee')">Coffee</li>					
 					<li onclick="url('./info')">info</li>
 					<li onclick="url('./team')">팀</li>
 					<!-- el태그 when은 참이면 if, otherwise는 else -->

@@ -33,17 +33,56 @@
 				
 				// 옛날방식
 				let recommentBox='<div class="recommentBox">';
-				recommentBox += '<form action="./cedit" method="post">';
 				recommentBox += '<textarea class="commentcontent" name="comment">' + commentChange + '</textarea>';
 				recommentBox += '<input type="hidden" name="cno" value="'+cno+'">';
-				recommentBox += '<button class="comment-btn" type="submit">댓글수정</button>';
-				recommentBox += '</form></div>';
+				recommentBox += '<button class="comment-btn">댓글수정</button>';
+				recommentBox += '</div>';
 				
 				comment.html(recommentBox);
 				
 			
 			}
 		});
+		
+		//댓글수정 .comment-btn버튼 눌렀을 때 .cno값, .commentcontent값 가져오는 명령 만들기
+		// 2024.01.25
+		$(document).on('click', ".comment-btn", function(){
+			
+			let cno = $(this).prev().val();
+			let recomment = $('.commentcontent').val();
+			let comment = $(this).parents(".ccomment"); // 댓글 위치
+			//alert(cno + " : " + recomment);
+			$.ajax({
+				url : './recomment',
+				type : 'post',
+				dataType : 'text',
+				data : {'cno' : cno, 'comment' : recomment},
+				success:function(result){
+					//alert('통신 성공 : ' + result);
+					if (result == 1){
+						// 수정 된 데이터를 화면에 보여지게 해요
+						$(this).parent(".recommentBox").remove();
+						comment.css('backgroundColor', '#ffffff');
+						comment.css('min-heigt', '100px');
+						comment.css('height', 'auto');  
+						recomment = recomment.replace(/(?:\r\n|\r|\n)/g, '<br>');
+						comment.html(recomment);
+						$(".commentDelete").show();
+						$(".commentEdit").show();
+					} else {
+						// 실패시 화면을 재로드.
+						alert("수정을 실패했습니다.")
+						location.href='./detail?page=${param.page}&no=${param.no}';
+						// location.href='./detail?page=${param.page}&no=${detail.no}'; 얘도 됨
+					}
+				},
+				error:function(error){
+					alert('문제발생문제발생 : ' + error);
+				}
+			}); // end ajax
+			
+		});
+		
 		
 		
 		// 24.01.24 댓글 삭제버튼을 눌렀습니다. id 가 아닌 class로 지정 (id로 하면 댓글 한개 지우면 멈춰버림 class는 여러개 가능) 
