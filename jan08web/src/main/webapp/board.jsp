@@ -22,7 +22,7 @@ tr:hover{
 	background-color: e0e1dd;
 }
 th{
-	background-color: 778da9;
+	background-color: #00d9ff;
 	border-bottom: 2px solid black;
 }
 td{

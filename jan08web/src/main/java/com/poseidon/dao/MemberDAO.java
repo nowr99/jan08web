@@ -12,13 +12,14 @@ import java.util.Map;
 import com.poseidon.dto.MemberDTO;
 
 // 로그인, 회원가입, 회원 탈퇴처리, 회원 정보보기 등의 일을 합니다.
+// 24.01.26 멤버 등급이 5보다 낮으면 로그인 할 수 없게 만들기
 public class MemberDAO extends AbstractDAO {
 
 	public MemberDTO login(MemberDTO dto) { // 로그인
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) AS count, mname FROM c23c_03.member WHERE mid=? AND mpw=?";
+		String sql = "SELECT COUNT(*) AS count, mname FROM c23c_03.member WHERE mid=? AND mpw=? AND mgrade >= 5";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -159,4 +160,7 @@ public class MemberDAO extends AbstractDAO {
 		}
 		return data;
 	}
+
+	
+	
 }
