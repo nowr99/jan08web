@@ -18,7 +18,7 @@
 		
 		// 24.01.24 댓글 수정하기
 		$(".commentEdit").click(function(){
-			if(confirm("정말 수정할꺼니?")){
+			if(confirm("정말 수정할꺼니?")){ 
 				// 필요한 cno 값 잡기 / 수정한 내용 + 로그인 ==== 서블릿에서 정리
 				let cno = $(this).parent().children(".cno").val(); // cno 잡기
 				let comment = $(this).parents(".chead").next();/*next()는 html 태그를 잡음 Object object*/; // 변경해야됨 나중에

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+article{
+	margin: 10px;
+	padding: 10px;
+	width: calc(100% - 40px);
+	height: calc(100vh - 40px);
+	overflow: scroll;
+}
+
+table{
+	width: 100%;
+	height: auto;
+	border-collapse:collapse;
+}
+th{
+	background-color: #00d9ff;
+	height: 30px;
+	line-height: 30px;
+}
+tr{
+	height: 30px;
+	line-height: 30px;
+}
+tr:hover{
+	background-color: skyblue;
+}
+td{
+	text-align: center;
+}
+
+.d1{
+	width: 10%;
+}
+.d2{
+	width: 20%;
+}
+.title{
+	width: 20%;
+	text-align: left;
+}
+.row0{  
+	background-color: #FFDC46;
+}
+
+
+
+
+

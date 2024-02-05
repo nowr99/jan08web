@@ -30,8 +30,9 @@ public class CommentDAO extends AbstractDAO {
 		}
 		return result;
 	}
-
-	public int commentDelete(CommentDTO dto) { // 댓글 삭제하기 (1에서 0으로 변경하여 옮기기)
+	 
+	// 댓글 삭제하기 (1에서 0으로 변경하여 옮기기)
+	public int commentDelete(CommentDTO dto) {
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE comment SET cdel='0' WHERE cno=? AND mno=(SELECT mno FROM member WHERE mid=?)";

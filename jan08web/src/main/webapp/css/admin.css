@@ -1,4 +1,12 @@
 @charset "UTF-8";
+
+/* css변수만들기 2024-01-29
+--변수명 : 값;
+전역 변수로 만들기 :root{}
+ */
+:root{
+	--main : 45px;
+}
 body{
 	margin: 0;
 	padding: 0;
@@ -10,14 +18,21 @@ body{
 	
 }
 .menu{
-	width: 150px;
+	/* 변수사용 var */
+	width: var(--main);
 	height: 100vh;
 	background-color: #00d9ff;
+	overflow: hidden;
+	position: absolute;
+}
+.menu:hover{
+	width: 150px;
+	transition: 0.3s;
 }
 .main{
-	width: calc(100% - 150px);
+	width: calc(100% - var(--main));
 	height: 100vh;
-	
+	margin-left: var(--main);
 }
 nav{
 	margin-top: 50px;
@@ -34,6 +49,20 @@ nav > ul > li{
 	margin: 5px 10px;
 	padding: 10px 0px;
 	text-align: left;
+	padding-left: 5px;
+	width: 150px;
+	overflow: hidden;
+}
+nav > ul > li > i{
+	margin-right: 7px;
+	/* firefox */
+	-moz-margin-right: 6px;
+	/* opera */
+	-o-margin-right: 6px;
+	/* 크롬, 앳지, 웨일 */
+	-webkit-margin-right: 6px;
+	/* 인터넷익플로러 */
+	-ms-margin-right: 6px;
 }
 nav > ul > li:hover{
 	font-weight: 900;

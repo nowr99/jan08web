@@ -40,6 +40,7 @@ public class CommentDel extends HttpServlet {
 			int result = dao.commentDelete(dto);
 			if(result == 1) {
 				response.sendRedirect("./detail?no="+request.getParameter("no"));
+				System.out.println("2");
 			} else {
 				response.sendRedirect("./error.jsp");
 			}	
@@ -66,6 +67,7 @@ public class CommentDel extends HttpServlet {
 		
 		PrintWriter pw = response.getWriter();
 		pw.print(result);
+		System.out.println("1");
 		}
 
 	}
