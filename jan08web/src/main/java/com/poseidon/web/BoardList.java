@@ -24,7 +24,7 @@ public class BoardList extends HttpServlet {
     public BoardList() {
         super();
     }
-
+    //ㅁㅁ
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		// 페이징 파라미터(웹에서 주소창) 잡기
