@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판판파라바라판판판</title>
+<title>게시판판파라바라판판판판</title>
 <link href="./css/index.css" rel="stylesheet">
 <link href="./css/menu.css" rel="stylesheet">
 <script type="text/javascript" src="./js/menu.js"></script>
